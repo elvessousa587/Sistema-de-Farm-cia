@@ -80,8 +80,8 @@ class vendaForm(forms.ModelForm):
 		fields = [
 		
 			'medicamento',
-			'pacient',
-			'quantidade',
+			'paciente',
+			'Quantidade',
 			'total',
 			'endereco',
 		]
