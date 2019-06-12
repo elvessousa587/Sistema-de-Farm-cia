@@ -1,0 +1,134 @@
+{% extends "base2.html" %} 
+
+{% block content %}
+{% load static %}
+
+    <!-- Banner Area Starts -->
+
+    <!-- Banner Area End -->
+  
+<script type="text/javascript" action="">
+function id( el ){
+        return document.getElementById( el );
+}
+window.onload = function(){
+        id('mais').onclick = function(){
+                id('format').value = parseInt( id('format').value )+1;
+                
+                id('total').value = {{ object.medicamento.preco }}*id('format').value;
+        }
+        id('menos').onclick = function(){
+                if( id('format').value>0 )
+                id('format').value = parseInt( id('format').value )-1;
+                
+                id('total').value = {{ object.medicamento.preco }}*id('format').value;
+                
+        }
+}       
+</script>
+       
+
+   <!-- navbar-->
+    <header class="header">
+      <!-- Top Bar-->
+     <table class="table table-bordered">
+  <thead > 
+    <tr >
+      <th scope="col"></th>
+      <th scope="col">Medicamento</th>
+      <th scope="col">Paciente</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Total</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <th scope="row">1</th>
+      <td > <img class="img-circle" src="{{ object.medicamento.cover.url }}" alt="Generic placeholder image" width="140" height="140"><h3>{{ object.title }}</h3>
+      </td>
+       <td >{{ object.paciente }}
+      </td>
+      <td> 
+        R${{ object.medicamento.preco }}
+      </td>
+      <td>
+        <input type="button" name="mais" id="mais" value="+" />
+        <input type="button" name="menos" id="menos" value="-" />
+        
+        <br />
+        Quant. <input type="text" name="format" value="0" id="format" size="2" /> x Valor
+      </td>
+      <td>
+          <br /><br />
+        Total: <input type="text" name="total" id="total" value="" />
+
+
+      </td >
+      <td>
+        {{ object.endereco }}
+      </td>
+       <td>
+
+          <style type="text/css">
+            .panel {
+            box-shadow: none !important;
+          }
+          </style>
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <!-- Latest compiled and minified CSS -->
+       
+
+          <!-- Latest compiled and minified JavaScript -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+          <div class="container">
+
+            
+            <a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              enviar
+            </a>
+               <a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTre" aria-expanded="false" aria-controls="collapseTre">
+              Entregue
+            </a>
+            
+
+
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel">
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel">
+                  <div>
+                    Status da venda
+                  </div>
+
+                </div>
+              </div>
+              <div class="panel">
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel">
+                  <div>
+                    Enviado
+                  </div>
+                </div>
+              </div>
+               <div class="panel">
+                <div id="collapseTre" class="panel-collapse collapse" role="tabpanel">
+                  <div>
+                    Entregue
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </td>
+
+    </tr>
+ 
+    
+  </tbody>
+</table>
+</div>
+
+{% endblock %}
+

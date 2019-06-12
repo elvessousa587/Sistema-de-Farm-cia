@@ -1,0 +1,75 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+  <div class="panel panel-default">
+  <div class="panel-body">
+   	<p><a class="btn btn-default" href="{% url 'cadastro_criar' %}" role="button">Novo Cadastro</a></p>
+
+  </div>
+</div>
+
+<div class="table-responsive">
+<div class="tablecontainer">
+ 		
+	<table  class="table">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Nome</td>
+			<td>Endereco</td>
+			<td>email</td>
+			<td>telefone</td>
+			<td>idade</td>
+			<td>cpf</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for objeto in object_list %}
+		<tr>
+			<td>{{ objeto.id }}</td>
+			<td>{{ objeto.nome }}</td>
+			<td>{{ objeto.endereco }}</td>
+			<td>{{ objeto.email }}</td>
+			<td>{{ objeto.telefone }}</td>
+			<td>{{ objeto.idade }}</td>
+			<td>{{ objeto.cpf }}</td>
+			<td>
+			<li class="dropdown">
+              <a class="btn btn-default" href="#" class="dropdown-toggle" data-toggle="dropdown">Opções <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+					<li><a class="btn btn-default" href="{% url 'cadastro_mostrar' objeto.id %}">Ver</a></li>
+                    <li><a class="btn btn-default" href="{% url 'cadastro_editar' objeto.id %}">Editar</a></li>
+                    <li><a class="btn btn-default" href="{% url 'cadastro_eliminar' objeto.id %}">Eliminar</a></li>
+              </ul>
+            </li>
+
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>Não ah registros </h1>
+		{% endif %}
+	</tbody>
+</table>
+</div>
+
+</div>
+<!--codigo para aparecer so 5 registros numa pagina e o resto em outra atravez do botao next-->
+<ul>
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a class="genric-btn info-border circle" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+		{% endif %}
+     </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a class="genric-btn info-border circle" href="?page={{ page_obj.next_page_number }}">Proximo</a> 
+    	{% endif %}
+    </li>
+</ul> 
+
+
+{% endblock%}

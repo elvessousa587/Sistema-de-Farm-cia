@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Farmacias SysFarma &middot; Bem Vindos</title>
+    <link rel="shortcut icon" href="icono.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farmacias">
+    <meta name="author" content="wlmy">
+
+    <!-- Le styles -->
+    <link href="{% static 'css/bootstrap.min2.css' %}" rel="stylesheet">
+<!--    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">-->
+    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar-fixed-top.css' %}" rel="stylesheet">
+	
+	<link href="{% static 'css/CSSlogin/CSSlogin.css' %}" rel="stylesheet">
+  
+  <link href="{% static 'csscart/cart.css' %}" rel="stylesheet">
+   
+<!--CSS medicamentos-->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+
+
+  </head>
+
+  <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+		
+		
+		
+		<div class="usuario" ">
+		   {% if user.is_authenticated %}
+		  
+		 <p>Olá {{ user.username }}! <a class="btn btn-primary" href="{% url 'logout' %}">logout</a></p>
+		{% else %}
+		  <p>Você não esta logado</p>
+		  <a href="{% url 'login' %}">login</a>
+		{% endif %}
+
+		</div
+<!--class="row hrow"-->
+
+  <div class="row">
+        <div class="col-md-6">
+          <h3></h3>
+        </div>
+        <!--<div class="col-md-6">
+          <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300" data-href="http://google.com"></div>
+
+         Inserta esta etiqueta después de la última etiqueta de Botón +1. 
+          <script type="text/javascript">
+            window.___gcfg = {lang: 'es'};
+
+            (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/platform.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+          </script>
+        </div>-->
+		
+        <div class="col-md-6">
+
+          
+
+
+
+<!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-size="medium" data-href="http://www.acorfarma.com.pe"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+        </div>
+  </div>
+  
+    <!-- NAVBAR
+    ================================================== -->
+  
+    <div id="nav-top" class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="{% static 'img/logos.png' %} " style="width:80; height:55px; margin-left: -50px;" alt="Firsst slide"></a>
+        </div>		
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="#about">Sobre Nos</a></li>
+			
+			  <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Serviços <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'cadastro_listar' %}">Cadastros</a></li>
+                <li><a href="{% url 'indeximg' %}">Medicamentos</a></li>
+                <li><a href="{% url 'listavenda' %}">Vendas</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">serviços</li>
+               
+              </ul>
+            </li>
+			
+            <li><a href="#locales">Nos Encontre</a></li>
+            <li><a href="{% url 'contato' %}">Contato</a></li>
+			
+			
+          </ul>
+          <!--<ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top</a></li>
+          </ul>-->
+        </div>
+      </div>
+    </div>
+
+
+ {% block content %}
+    {% endblock %}
+	
+
+      <!-- FOOTER -->
+    <footer style="text-align: center; padding-top: 200px;">
+        <p class="pull-right"><a href="#">Voltar ao topo</a></p>
+        <p>&copy; 2019 Farmacias SysFarma, Inc. &middot; <a href="#"> Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+  <script src="{% static 'cssMedicamento/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'cssMedicamento/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'csscart/jscart.js' %}"></script>
+  </body>
+</html>
+

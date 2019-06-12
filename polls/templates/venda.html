@@ -1,0 +1,21 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+
+    <form method="POST" role="group" style="text-align: center;">
+    {% csrf_token %}
+
+     {{ form.as_p }}
+     		     
+<!-- PROBLEMA, NAO RECOLHE AS OPÇÔES
+<select class="form-control">
+  <option value="valor1">Valor 1</option> 
+  <option value="valor2" selected>Valor 2</option>
+  <option value="valor3">Valor 3</option>
+</select>   
+-->   
+        <input type="submit" value="Salvar">
+    </form>
+{% endblock %}
+
+

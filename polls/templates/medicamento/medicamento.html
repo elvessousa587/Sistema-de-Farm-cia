@@ -1,0 +1,52 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+
+<div class="container">
+
+   <div class="panel panel-default">
+  <div class="panel-body">
+   	<p><a class="btn btn-default" href="{% url 'add_post' %}" role="button">Novo Medicamento</a></p>
+
+  </div>
+</div>
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+ {% if object_list %}
+{% for post in object_list %}
+
+<div class="painel" style="text-align: center;">
+   		<div class="col-lg-4">
+
+          <img class="img-circle" src="{{ post.cover.url }}" alt="Generic placeholder image" width="140" height="140">
+          <h2>{{ post.title }}</h2>
+
+          <p style="max-width: 50ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ post.desc }}</p>
+          <p style="color: blue;">R$ {{ post.preco }}</p>
+          
+          	<p><a class="btn btn-default" href="{% url 'venda' %}" role="button">Vender&raquo;</a>
+           <a class="btn btn-default" href="{% url 'deletepost' post.id %}" role="button">Excluir</a><a class="btn btn-default" href="{% url 'blogdetails' post.id %}" role="button">Ver mais &raquo;</a></p> 
+        </div><!-- /.col-lg-4 -->
+        </div>
+{% endfor %}
+
+{% else %}
+                        <h4>Não ha medicamentos! </h4>
+{% endif %} 
+       
+      </div><!-- /.row -->
+
+      <!-- Oculatar Texto
+ <div id="spoiler" style="display:none">  TEXTO OCULTADO </div>  
+       <button title="Clique para mostrar/ocultar" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}"> <img src="URL DA IMAGEM" />clique</button>     
+      -->
+
+</div>
+
+      <!-- START THE FEATURETTES -->
+
+      
+
+{% endblock%}

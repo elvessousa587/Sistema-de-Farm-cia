@@ -1,0 +1,73 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+ <div class="panel panel-default">
+  <div class="panel-body">
+    <p><a class="btn btn-default" href="{% url 'venda' %}" role="button">Nova Venda</a></p>
+
+  </div>
+</div>           
+    <div class="table-responsive">
+<div class="tablecontainer">
+        
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+               
+                <td>ID</td>
+                <td>Medicamento</td>
+                <td>Paciente</td>
+                <td>Quantidade</td>
+                <td>Total</td>
+                <td>Endereço</td>
+            </tr>
+        </thead>
+        <tbody>
+           {% if object_list %}
+        {% for objeto in object_list %}
+
+        <tr>
+            <td>{{ objeto.id }}</td>
+            <td>{{ objeto.medicamento }}</td>
+            <td>{{ objeto.paciente }}</td>
+            <td>{{ objeto.quantidade }}</td>
+            <td>{{ objeto.total }}</td>
+            <td>{{ objeto.endereco }}</td>
+       
+            <td>
+               
+             <li class="dropdown">
+              <a class="btn btn-default" href="#" class="dropdown-toggle" data-toggle="dropdown">Opções <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                    <li><a class="btn btn-default" href="#">Ver</a></li>
+                    <li><a class="btn btn-default" href="#">Editar</a></li>
+                    <li><a class="btn btn-default" href="{% url 'eliminarvenda' objeto.id %}">Eliminar</a></li>
+              </ul>
+              
+               <a class="btn btn-default" href="{% url 'enviarVenda' objeto.id %}" >Realizar Entregar</a>    
+            </li>   
+
+            </td>
+        </tr>
+        {% endfor %}
+        
+        {% else %}
+        <h1>Não ah registros </h1>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+</div>
+    <ul class="pager">
+    <li>
+        {% if page_obj.has_previous %}
+         <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        </li>
+    <li>
+        {% if page_obj.has_next %}
+         <a href="?page={{ page_obj.next_page_number }}">Proximo</a> 
+        {% endif %}
+    </li>
+</ul> 
+{% endblock %}

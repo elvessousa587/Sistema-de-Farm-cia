@@ -1,0 +1,48 @@
+{% extends "base2.html" %} 
+
+{% block content %}
+{% load static %}
+
+    <!-- Banner Area Starts -->
+
+    <!-- Banner Area End -->
+
+    <!--================Blog Area =================-->
+
+           
+ <div class="panel panel-default" style="text-align: center;">
+  <!-- Default panel contents -->
+  <div class="panel-heading" ><h1>Medicamento</h1></div>
+  <div class="panel-body" >
+ 
+  </div>
+    <div class="conteiner" >
+   
+       <section class="blog_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post row">
+
+                        <div class="col-lg-9 col-md-9 blog_details" >
+                             <div class="feature-img">
+                                <img class="img-fluid" style="max-width: 200px" src="{{ post.cover.url }}" alt="">
+                            </div>  
+                            <h1>{{ post.title }}</h1>
+                            <p class="excert">
+                               {{ post.desc }}
+                            </p>
+                             <p class="excert">
+                               {{ post.preco }}
+                            </p>
+                             <p><a class="btn btn-default" href="{% url 'indeximg' %}" role="button">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+</div>
+    <!--================Blog Area =================-->
+{% endblock %}

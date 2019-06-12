@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<p><strong>Nomes: </strong>{{ object.nome }} </p>
+<p><strong>Endereço: </strong>{{ object.endereco }} </p>
+<p><strong>Email: </strong>{{ object.email }} </p>
+<p><strong>Telefone: </strong>{{ object.telefone }} </p>
+<p><strong>Idade: </strong>{{ object.idade }} </p>
+<p><strong>CPF: </strong>{{ object.cpf }} </p>
+
+<a class="btn btn-default" href="{% url 'cadastro_listar' %}">Ok</a>
+<a class="btn btn-default" href="{% url 'cadastro_editar' object.id%}">Editar</a>
+<a class="btn btn-default" href="{% url 'cadastro_eliminar' object.id %}">Eliminar</a>
+
+{% endblock %}

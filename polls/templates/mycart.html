@@ -1,0 +1,140 @@
+{% extends "base2.html" %} 
+
+{% block content %}
+{% load static %}
+  	
+<script type="text/javascript" action="">
+function id( el ){
+        return document.getElementById( el );
+}
+window.onload = function(){
+        id('mais').onclick = function(){
+                id('format').value = parseInt( id('format').value )+1;
+                
+                id('total').value = {{ post.preco }}*id('format').value;
+        }
+        id('menos').onclick = function(){
+                if( id('format').value>0 )
+                id('format').value = parseInt( id('format').value )-1;
+                
+                id('total').value = {{ post.preco }}*id('format').value;
+                
+        }
+}       
+</script>
+       
+
+   <!-- navbar-->
+    <header class="header">
+      <!-- Top Bar-->
+     <table class="table table-bordered">
+  <thead > 
+    <tr >
+      <th scope="col"></th>
+      <th scope="col">Medicamento</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <th scope="row">1</th>
+      <td > <img class="img-circle" src="{{ post.cover.url }}" alt="Generic placeholder image" width="140" height="140"><h3>{{ post.title }}</h3></td>
+      <td> 
+        $${{ post.preco }}
+      </td>
+      <td>
+        <input type="button" name="mais" id="mais" value="+" />
+        <input type="button" name="menos" id="menos" value="-" />
+        
+        <br />
+        Quant. <input type="text" name="format" value="0" id="format" size="2" /> x Valor
+      </td>
+      <td>
+          <br /><br />
+        Total: <input type="text" name="total" id="total" value="" />
+
+      </td>
+      <td>
+      
+      </td>
+    </tr>
+ 
+    
+  </tbody>
+</table>
+
+    <!-- End Navbar-->
+    <div class="cart-page-holder">
+      <!-- Hero section-->
+      <section class="hero">
+        <div class="container">
+          <h1>My Cart</h1>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </section>
+      <!-- End Hero section-->
+      <!-- Cart section-->
+      <section class="cart">
+     <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Senha</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Endereço</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Endereço 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc.">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Cidade</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputEstado">Estado</label>
+      <select id="inputEstado" class="form-control">
+        <option selected>Escolher...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputCEP">CEP</label>
+      <input type="text" class="form-control" id="inputCEP">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Clique em mim
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+      </section>
+    </div>
+    <!-- Footer-->
+  
+    <!-- End Footer-->
+    <!-- Scroll to top button-->
+    <div id="scrollTop"><i class="fa fa-angle-up"></i></div>
+    <!-- End scroll to top button-->
+    <button type="button" data-toggle="collapse" data-target="#style-switch" id="style-switch-button" class="btn btn-primary d-none d-lg-block"><i class="fa fa-cog fa-2x"></i></button>
+
+    <!-- JavaScript files-->
+    
+
+
+    {% endblock %}

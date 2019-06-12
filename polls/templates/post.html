@@ -1,0 +1,23 @@
+<!-- templates/post.html -->
+{% extends "base2.html" %} 
+
+{% block content %}
+{% load static %}
+
+
+
+<div class="panel panel-default" style="margin-right: 400px; margin-left: 400px; text-align: center;">
+  <!-- Default panel contents -->
+  <div class="panel-heading" ><h1>Adicione um novo medicamento!</h1></div>
+  <div class="panel-body" >
+ 
+  </div>
+	<div class="conteiner" >
+	<form method="post" enctype="multipart/form-data">
+	  {% csrf_token %}
+	  {{ form.as_p }}
+	  <button class="btn btn-default" type="submit">Adicionar Medicamento</button>
+	</form>
+	</div>
+</div>
+ {% endblock %}

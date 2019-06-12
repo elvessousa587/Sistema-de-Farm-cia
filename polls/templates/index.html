@@ -1,0 +1,136 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="{% static 'img/slide.jpg' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Bem vindos a nova farmacia picoense.</h1>
+              <p>Na Farmacia <code>SysFarma</code> O objetivo é economizar tempo e ajudar a manter sua família saudável.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Bem Vindos</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'img/pdsi1.jpg' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <!--<h1>Medicamento generico ?.</h1>
+              <p>Durante una consulta con su medico, le receto un medicamento "generico" en lugar de su medicacion habitual..</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer mas</a></p>-->
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'img/pdsi2.jpg' %}" alt="">
+        </div>
+        <div class="item">
+          <img src="{% static 'img/pdsi3.jpg' %}" alt="">
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+	
+	
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div id="about" class="row">
+        <div class="col-md-6">
+          <h2 class="featurette-heading">Conheça nos, <span class="text-muted">Quem somos?</span></h2>
+        </div>
+      </div>
+
+      <div  class="row">
+        <div class="col-lg-4">
+          <h2>Consultas Farmaceuticas</h2><hr>
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;" src="{% static 'img/img2.jpg' %}">
+          <p>Estamos à sua disposição para quaisquer dúvidas e sugestões que você possa ter sobre questões de cuidados farmacêuticos (medicamentos, interações, efeitos colaterais).</p>
+          <p><a class="btn" href="#">&raquo;.....&raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="col-lg-4">
+          <h2>Pessoal Capacitado</h2><hr>
+          <img class="img-circle" data-src="holder.js/140x140" style="width: 140px; height: 140px;" src="{% static 'img/img3.jpg' %}">
+          <p>Contamos com pessoal capacitado no manuseio e dispensação de medicamentos, dispositivos médicos e ortopedia.</p>
+          <p><a class="btn" href="#">&raquo;.....&raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="col-lg-4">
+          <h2>Produtos</h2><hr>
+          <img class="img-circle" data-src="holder.js/140x140" style="width: 140px; height: 140px;" src="{% static 'img/img4.jpg' %}">
+          <p>Para nós, a sua saúde é importante e é algo que nos motiva a oferecer a melhor variedade de produtos a um preço competitivo.</p>
+          <p><a class="btn" href="#">&raquo;.....&raquo;</a></p>
+        </div><!-- /.span4 -->
+      </div><!-- /.row -->
+
+     
+            <!-- START THE FEATURETTES -->
+
+      <hr id="service" class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Nossos Serviços. <span class="text-muted">Nos preocupamos por ti.</span></h2>
+          <p class="lead">O sortimento mais completo.<code>-</code>Respeito absoluto pela prescrição do seu médico.<code>-</code>Grande variedade de medicamentos confiáveis ​​e genuínos.<code>-</code>Medição da Pressão Arterial.<code>-</code>Aplicação de injeções. </p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{% static 'img/services.png' %}">
+        </div>
+      </div>
+
+      <!--<hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+      </div>-->
+
+      <hr id="locales" class="featurette-divider">
+
+      <div  class="row featurette">
+        <div class="col-md-3">
+          <h2 class="featurette-heading">Nos Encontre, <span class="text-muted">Visite - nos</span></h2>
+          <p class="lead">Conheça a localização de nossas farmacias</p>
+        </div>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.3804183852894!2d-41.43645158602052!3d-7.0818204713835975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x79c1a843b8a035d%3A0x362c9952b4717405!2sUniversidade+Federal+do+Piau%C3%AD+-+Picos!5e0!3m2!1spt-BR!2sbr!4v1554983200631!5m2!1spt-BR!2sbr" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <!--
+		<div class="col-md-9">
+          <div id="map_wrapper">
+            <div id="map_canvas" class="mapping"></div>
+          </div>
+        </div>
+		-->
+      </div>
+
+      <hr class="featurette-divider">
+
+    </div><!-- /.container -->
+
+
+
+{% endblock %}

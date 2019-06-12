@@ -1,0 +1,64 @@
+{% extends 'templates2/base.html' %}
+
+{% block content %}
+	<h4>Filtrar por:</h4>
+	<form method="get">
+	<p>
+	Nome: &nbsp{{ filter.form.nome }} &nbsp
+	Email: &nbsp {{ filter.form.email }} &nbsp
+	CPF: &nbsp{{ filter.form.cpf }} &nbsp;&nbsp;
+	<button class="btn btn-success" type="submit">Filtrar</button>
+	</p>
+	</form>
+	<div class="table-responsive">
+	<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Nome</td>
+			<td>Endereco</td>
+			<td>Email</td>
+			<td>Telefone</td>
+			<td>Idade</td>
+			<td>Cpf</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if filter.qs %}
+		{% for cadastro in filter.qs %}
+		<tr>
+			<td>{{ cadastro.id }}</td>
+			<td>{{ cadastro.nome }}</td>
+			<td>{{ cadastro.endereco }}</td>
+			<td>{{ cadastro.email }}</td>
+			<td>{{ cadastro.telefobe }}</td>
+			<td>{{ cadastro.idade }}</td>
+			<td>{{ cadastro.cpf }}</td>
+			<td>
+				
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>Não tem registros!</h1>
+		{% endif %}
+	</tbody>
+</table>
+</div>
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}">Proximo</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}">Anterior</a> 
+    	{% endif %}
+    </li>
+</ul> 
+	
+{% endblock %}
+
