@@ -9,7 +9,6 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'desc', 'cover', 'preco']
 
 
-
 class CadastroForm(forms.ModelForm):
 	class Meta:
 		model = Cadastro
@@ -81,7 +80,7 @@ class vendaForm(forms.ModelForm):
 		fields = [
 		
 			'medicamento',
-			'paciente',
+			'pacient',
 			'quantidade',
 			'total',
 			'endereco',
