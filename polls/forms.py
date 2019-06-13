@@ -98,7 +98,7 @@ class vendaForm(forms.ModelForm):
 
 		widgets = {
 			
-			'medicamento': forms.TextInput(attrs={'class':'form-control'}),
+			'medicamentos': forms.TextInput(attrs={'class':'form-control'}),
 			'paciente': forms.TextInput(attrs={'class':'form-control'}),
 			'quantidade': forms.TextInput(attrs={'class':'form-control'}),
 			'total': forms.TextInput(attrs={'class':'form-control'}),
