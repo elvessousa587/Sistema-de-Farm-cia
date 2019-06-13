@@ -79,7 +79,7 @@ class vendaForm(forms.ModelForm):
 		model = venda
 		fields = [
 		
-			'medicamento',
+			'medicamentos',
 			'paciente',
 			'Quantidade',
 			'total',
@@ -105,4 +105,3 @@ class vendaForm(forms.ModelForm):
 			'endereco': forms.TextInput(attrs={'class':'form-control'}),
 			
 		}"""
-   	
